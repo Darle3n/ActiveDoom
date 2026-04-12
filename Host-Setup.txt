@@ -1,0 +1,25 @@
+Splunk Host Configuration (Run on HOST)
+
+You must enable receiving: Settings → Forwarding and Receiving → Enable Receiving → Port 9997
+
+
+Verify Data Flow in Splunk
+
+Go to: Search & Reporting
+Use: index=main sourcetype=WinEventLog:Security
+
+
+Generate Test Logs (VERY IMPORTANT)
+
+Run on CLIENT01: runas /user:corp\Administrator cmd
+Enter wrong password → generates Event ID 4625
+
+
+TROUBLESHOOTING (Based on your previous issue)
+
+If logs don’t appear:
+
+Check Forwarder: Get-Service splunkforwarder
+Check connection: Test-NetConnection 192.168.180.1 -Port 9997
+Check inputs: cd "C:\Program Files\SplunkUniversalForwarder\etc\system\local"
+notepad inputs.conf
