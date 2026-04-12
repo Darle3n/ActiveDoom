@@ -68,19 +68,19 @@ If you want maximum isolation, disable NAT after patching and package installati
 ### VM Hardware Settings
 
 |     Setting     |                 DC01                         | CLIENT01                                     | KALI01 |
-|-----------------|----------------------------------------------|----------------------------------------------|
-| Guest OS        | Windows Server guest                         | Windows 10/11 guest                          | Kali Linux guest 
-| CPU             | 2 vCPU                                       | 2 vCPU                                       | 2 vCPU 
-| RAM             | 4096 MB recommended, 2048 MB minimum         | 4096 MB recommended, 2048 MB minimum         | 4096 MB recommended, 2048 MB minimum 
-| Disk            | 60 GB dynamic VDI                            | 60 GB dynamic VDI                            | 40 to 60 GB dynamic VDI 
-| Firmware        | BIOS or UEFI, keep consistent across all VMs | BIOS or UEFI, keep consistent across all VMs | BIOS or UEFI, keep consistent across all VMs 
-| Chipset         | Default VirtualBox chipset                   | Default VirtualBox chipset                   | Default VirtualBox chipset 
-| Graphics        | Default or low video memory                  | Default or low video memory                  | Default or low video memory 
-| Clipboard       | Disabled or bidirectional during admin work  | Disabled or bidirectional during admin work  | Disabled or bidirectional during admin work 
-| Drag and drop   | Disabled                                     | Disabled                                     | Disabled 
-| Shared folders  | Off by default                               | Off by default                               | Off by default 
-| Audio           | Disabled                                     | Disabled                                     | Disabled 
-| USB             | Disabled unless required                     | Disabled unless required                     | Disabled unless required 
+|-----------------|----------------------------------------------|----------------------------------------------|----------------------------------------------|
+| Guest OS        | Windows Server guest                         | Windows 10/11 guest                          | Kali Linux guest                             |
+| CPU             | 2 vCPU                                       | 2 vCPU                                       | 2 vCPU                                       |
+| RAM             | 4096 MB recommended, 2048 MB minimum         | 4096 MB recommended, 2048 MB minimum         | 4096 MB recommended, 2048 MB minimum         |
+| Disk            | 60 GB dynamic VDI                            | 60 GB dynamic VDI                            | 40 to 60 GB dynamic VDI                      | 
+| Firmware        | BIOS or UEFI, keep consistent across all VMs | BIOS or UEFI, keep consistent across all VMs | BIOS or UEFI, keep consistent across all VMs |
+| Chipset         | Default VirtualBox chipset                   | Default VirtualBox chipset                   | Default VirtualBox chipset                   |
+| Graphics        | Default or low video memory                  | Default or low video memory                  | Default or low video memory                  |
+| Clipboard       | Disabled or bidirectional during admin work  | Disabled or bidirectional during admin work  | Disabled or bidirectional during admin work  |
+| Drag and drop   | Disabled                                     | Disabled                                     | Disabled                                     |
+| Shared folders  | Off by default                               | Off by default                               | Off by default                               | 
+| Audio           | Disabled                                     | Disabled                                     | Disabled                                     |
+| USB             | Disabled unless required                     | Disabled unless required                     | Disabled unless required                     |
 
 ### Network Adapter Settings in VirtualBox
 
