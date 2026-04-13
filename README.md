@@ -1,5 +1,7 @@
 # AD Lab for VirtualBox
 
+![ActiveDoom Banner](screenshots/banner-placeholder.png)
+
 This repository provides a repeatable Active Directory detection lab built around VirtualBox VMs, a host-installed Splunk Enterprise instance, and WSL-based tooling. The goal is to keep the lab isolated, easy to rebuild, and predictable for detection engineering, telemetry validation, and controlled attack simulation.
 
 ## What This Lab Contains
