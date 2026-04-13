@@ -4,7 +4,7 @@
 
 > A production-style cybersecurity lab project that demonstrates end-to-end Red Team simulation and Blue Team detection engineering using Active Directory, Splunk, Kali Linux, and Windows infrastructure.
 
-## 🎯 Project Objective
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/bullseye.svg" alt="Bullseye" width="18" height="18"> Project Objective
 
 ActiveDoom is designed to solve a common SOC challenge: many analysts can run detections, but fewer can prove they understand the attacker behavior that generated those signals.  
 This project closes that gap by combining:
@@ -14,7 +14,7 @@ This project closes that gap by combining:
 - Detection engineering for Windows authentication abuse
 - Incident investigation storytelling for portfolio presentation
 
-## 🧩 Problem Statement
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/question-circle.svg" alt="Question" width="18" height="18"> Problem Statement
 
 Security teams frequently miss early-stage credential abuse because authentication events are noisy and often not correlated effectively. ActiveDoom demonstrates how to:
 
@@ -23,7 +23,7 @@ Security teams frequently miss early-stage credential abuse because authenticati
 - Build reusable SIEM queries and alert logic
 - Map telemetry to MITRE ATT&CK for analyst-ready reporting
 
-## 🏗️ Architecture Overview
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/diagram-3.svg" alt="Diagram" width="18" height="18"> Architecture Overview
 
 ### Components
 
@@ -43,7 +43,7 @@ Security teams frequently miss early-stage credential abuse because authenticati
 
 Detailed diagram and flow: [architecture/lab-diagram.md](architecture/lab-diagram.md)
 
-## 🧱 Lab Setup Summary
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/diagram-3.svg" alt="Diagram" width="18" height="18"> Lab Setup Summary
 
 ### Infrastructure Requirements
 
@@ -67,7 +67,7 @@ Detailed diagram and flow: [architecture/lab-diagram.md](architecture/lab-diagra
 
 Full procedure: [docs/setup-guide.md](docs/setup-guide.md)
 
-## ⚔️ Attack Scenarios (Red Team Simulation)
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/crosshair.svg" alt="Crosshair" width="18" height="18"> Attack Scenarios (Red Team Simulation)
 
 ### 1) Brute-force Style Failed Login Burst
 
@@ -91,7 +91,7 @@ Example:
 .\scripts\attacks\login-simulation.ps1 -TargetHost "\\DC01\\IPC$" -DomainUser "corp\Administrator" -Password "Password@1234" -Count 5
 ```
 
-## 🛡️ Detection Engineering (Blue Team)
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/shield-check.svg" alt="Shield" width="18" height="18"> Detection Engineering (Blue Team)
 
 Detection pack: [splunk/queries/detection-queries.spl](splunk/queries/detection-queries.spl)
 
@@ -107,14 +107,14 @@ Detection pack: [splunk/queries/detection-queries.spl](splunk/queries/detection-
 - `index=main sourcetype=WinEventLog:Security EventCode=4624`
 - Binned time aggregation and threshold filtering
 
-## 🗺️ MITRE ATT&CK Mapping
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/map.svg" alt="Map" width="18" height="18"> MITRE ATT&CK Mapping
 
 | Technique | Name | Telemetry | Detection Logic |
 |---|---|---|---|
 | `T1110` | Brute Force | Event ID `4625` | Repeated failed authentication attempts per host/time window |
 | `T1078` | Valid Accounts | Event ID `4624` | Successful authentication tracking and account context |
 
-## 🖼️ Screenshots and Portfolio Evidence
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/images.svg" alt="Images" width="18" height="18"> Screenshots and Portfolio Evidence
 
 Add the supplied images to [screenshots/README.md](screenshots/README.md) using these filenames:
 
@@ -153,7 +153,7 @@ Use these image slots once the files are placed in `screenshots/`:
 
 ![Alert Evidence](screenshots/alert-triggered.png)
 
-## 🚀 Step-by-Step Quick Start
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/rocket-takeoff.svg" alt="Rocket" width="18" height="18"> Step-by-Step Quick Start
 
 1. Clone repository and open PowerShell as Administrator.
 2. Build VMs and apply static IP plan (`192.168.180.0/24`).
@@ -165,7 +165,7 @@ Use these image slots once the files are placed in `screenshots/`:
 8. Run SPL detections and document findings.
 9. Complete evidence report in [reports/final-report.md](reports/final-report.md).
 
-## 📁 Repository Structure
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/folder2.svg" alt="Folder" width="18" height="18"> Repository Structure
 
 ```text
 ActiveDoom/
@@ -195,7 +195,7 @@ ActiveDoom/
 └── Host-Setup.txt
 ```
 
-## 🔁 Backward Compatibility Note
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/arrow-repeat.svg" alt="Repeat" width="18" height="18"> Backward Compatibility Note
 
 Original root setup files are intentionally preserved:
 
@@ -205,7 +205,7 @@ Original root setup files are intentionally preserved:
 
 This keeps existing functionality intact while introducing a modular production structure.
 
-## 🧰 Troubleshooting
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/tools.svg" alt="Tools" width="18" height="18"> Troubleshooting
 
 See [docs/troubleshooting.md](docs/troubleshooting.md) for:
 
@@ -214,7 +214,7 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for:
 - Missing log ingestion
 - Domain join and DNS problems
 
-## 🔮 Future Improvements
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/stars.svg" alt="Stars" width="18" height="18"> Future Improvements
 
 - AI-assisted SOC workflows for anomaly triage and alert enrichment
 - Wazuh integration for host-based detection correlation
@@ -222,7 +222,7 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for:
 - CI-based validation of SPL queries and detection coverage
 - Expanded ATT&CK mapping for lateral movement and privilege escalation
 
-## 💼 Professional Positioning
+## <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/briefcase.svg" alt="Briefcase" width="18" height="18"> Professional Positioning
 
 This repository is built to showcase SOC Analyst / Detection Engineer capability across:
 

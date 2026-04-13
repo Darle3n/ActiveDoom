@@ -44,4 +44,4 @@ $SplunkPath = "C:\Program Files\SplunkUniversalForwarder\bin\splunk.exe"
 
 Restart-Service splunkforwarder
 
-Write-Host "✅ CLIENT01 Setup Completed"
+Write-Host "CLIENT01 setup completed successfully"
