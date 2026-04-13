@@ -1,0 +1,20 @@
+# ActiveDoom Detection Queries
+# Scope: Windows authentication telemetry in Splunk
+
+# 1) Failed Login Detection - Event ID 4625
+index=main sourcetype=WinEventLog:Security EventCode=4625
+| stats count as failed_attempts values(Account_Name) as users values(Workstation_Name) as src_hosts by host
+| sort - failed_attempts
+
+# 2) Successful Login Detection - Event ID 4624
+index=main sourcetype=WinEventLog:Security EventCode=4624
+| stats count as successful_logins values(Account_Name) as users values(Logon_Type) as logon_type by host
+| sort - successful_logins
+
+# 3) Brute Force Detection (aggregation over time)
+index=main sourcetype=WinEventLog:Security EventCode=4625
+| bin _time span=5m
+| stats count as failed_attempts values(Account_Name) as targeted_accounts values(Source_Network_Address) as source_ips by _time, host
+| where failed_attempts >= 5
+| eval severity=case(failed_attempts>=20,"critical",failed_attempts>=10,"high",failed_attempts>=5,"medium",1=1,"low")
+| sort - _time

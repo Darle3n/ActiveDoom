@@ -1,0 +1,47 @@
+# ================================
+# CLIENT01 CONFIGURATION SCRIPT
+# ================================
+
+# VARIABLES
+$IPAddress = "192.168.180.20"
+$Gateway = "192.168.180.1"
+$DNS = "192.168.180.10"
+$Interface = "Ethernet"
+$Domain = "corp.local"
+$DomainUser = "corp\Administrator"
+$UFPath = "C:\Installers\splunkforwarder.msi"
+
+# 1. Rename Computer
+Rename-Computer -NewName "CLIENT01" -Force
+
+# 2. Set Static IP
+New-NetIPAddress -InterfaceAlias $Interface -IPAddress $IPAddress -PrefixLength 24 -DefaultGateway $Gateway
+Set-DnsClientServerAddress -InterfaceAlias $Interface -ServerAddresses $DNS
+
+# 3. Join Domain
+$Password = ConvertTo-SecureString "Password@1234" -AsPlainText -Force
+$Credential = New-Object System.Management.Automation.PSCredential ($DomainUser, $Password)
+
+Add-Computer -DomainName $Domain -Credential $Credential -Force -Restart
+
+# ---- SCRIPT WILL CONTINUE AFTER REBOOT ----
+
+Start-Sleep -Seconds 60
+
+# 4. Install Splunk Forwarder
+Start-Process msiexec.exe -ArgumentList "/i $UFPath /quiet AGREETOLICENSE=Yes RECEIVING_INDEXER=192.168.180.1:9997" -Wait
+
+# 5. Configure Splunk
+$SplunkPath = "C:\Program Files\SplunkUniversalForwarder\bin\splunk.exe"
+
+& $SplunkPath start --accept-license --answer-yes --no-prompt
+& $SplunkPath add forward-server 192.168.180.1:9997
+& $SplunkPath add monitor WinEventLog:Security
+& $SplunkPath add monitor WinEventLog:System
+
+# 6. Enable Boot Start
+& $SplunkPath enable boot-start
+
+Restart-Service splunkforwarder
+
+Write-Host "CLIENT01 Setup Completed"
