@@ -1,4 +1,4 @@
-# AD Lab for VirtualBox
+# Active directory Lab for VirtualBox
 
 ![ActiveDoom Banner](screenshots/banner-placeholder.png)
 
